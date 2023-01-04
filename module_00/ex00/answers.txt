@@ -1,0 +1,25 @@
+Output a list of installed packages and their versions:
+	python: python -m pip list
+	pip: pip list
+	conda: conda list
+
+Show the package metadata of numpy:
+	python: python -m pip show numpy
+	pip: pip show numpy
+	conda: not available
+
+Remove the package numpy:
+	python: python -m pip uninstall numpy
+	pip: pip uninstall numpy
+	conda: conda remove numpy
+
+Reinstall the package numpy:
+	python: python -m pip install numpy
+	pip: pip install numpy
+	conda: conda install numpy
+
+Freeze your python packages and their versions in a requirements.txt file you
+have to turn-in:
+	python: python -m pip freeze > requirements.txt
+	pip: pip freeze > requirements.txt
+	conda: conda list --export > requirements.txt
