@@ -13,7 +13,7 @@ def text_analyzer(txt: str = ...):
     function will ask the user to input a text.
     """
 
-    if txt == ... or txt == None:
+    if txt == ... or txt is None:
         print("What is the text to analyse?")
         txt = input()
     if not isinstance(txt, str):

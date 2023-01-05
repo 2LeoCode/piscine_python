@@ -5,7 +5,10 @@ from sys import stderr
 def test(args: 'list[str]', expected: str = ..., error: str = ...):
     res = run(["python", "whois.py"] + args, stdout=PIPE, stderr=PIPE)
     if error is ... and expected is ...:
-        print("[Error] No expected output or error message provided", file=stderr)
+        print(
+            "[Error] No expected output or error message provided",
+            file=stderr
+        )
         return
     print(
         "[KO]" if

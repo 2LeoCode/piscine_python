@@ -29,7 +29,9 @@ def test(
     )
 
 
-test(["Hello, world !"], standalone=True,
+test(
+    ["Hello, world !"],
+    standalone=True,
     expected=(
         "The text contains 14 character(s):\n"
         "1 upper letter(s)\n"
