@@ -2,6 +2,7 @@ from time import perf_counter, sleep
 from random import randint
 from os import environ as env
 
+
 def log(func):
     def wrapper(*args, **kwargs):
         start_s = perf_counter()
@@ -9,7 +10,10 @@ def log(func):
         delta_s = perf_counter() - start_s
         prefix = f"({env['USER']})Running: "
         func_name = ' '.join(func.__name__.split('_')).title()
-        suffix = f"[ exec-time = " + (f"{delta_s * 1000:.3f} ms ]" if delta_s < 1 else f"{delta_s:.3f} s ]") + '\n'
+        suffix = f"[ exec-time = " + (
+            f"{delta_s * 1000:.3f} ms ]" if delta_s < 1
+            else f"{delta_s:.3f} s ]"
+        ) + '\n'
         with open("machine.log", "a") as f:
             f.write(prefix + "{:<19}".format(func_name) + suffix)
         return ret
@@ -44,6 +48,7 @@ class CoffeeMachine():
         sleep(randint(1, 5))
         self.water_level += water_level
         print("Blub blub blub...")
+
 
 if __name__ == "__main__":
     machine = CoffeeMachine()

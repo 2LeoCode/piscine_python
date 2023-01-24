@@ -21,6 +21,7 @@ def ft_progress(iterable):
             f"[{'=' * int((i + 1) / len(iterable) * 20)}"
             f"{'>' if i < len(iterable) - 1 else ''}"
             f"{' ' * (19 - int((i + 1) / len(iterable) * 20))}] "
-            f"{i + 1:>{len(str(len(iterable)))}} / {len(iterable)} | elapsed time {elapsed:.2f}s", end=''
+            f"{i + 1:>{len(str(len(iterable)))}} / {len(iterable)} "
+            f"| elapsed time {elapsed:.2f}s", end=''
         )
     print()

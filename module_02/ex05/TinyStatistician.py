@@ -1,5 +1,6 @@
 from math import sqrt
 
+
 class TinyStatistician:
     def mean(self, v):
         if len(v) == 0:
@@ -26,6 +27,7 @@ class TinyStatistician:
         if len(v) == 0:
             return None
         return float(sqrt(self.var(v)))
+
 
 if __name__ == "__main__":
     tstat = TinyStatistician()

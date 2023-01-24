@@ -1,5 +1,6 @@
 from functools import reduce
 
+
 def what_are_the_vars(*args, **kwargs):
     result = ObjectC()
     list(setattr(result, f"var_{i}", x) for (x, i) in enumerate(args))
@@ -25,7 +26,6 @@ class ObjectC(object):
 
     def __str__(self):
         return self.__repr__()
-
 
 
 if __name__ == "__main__":

@@ -1,12 +1,17 @@
 from pandas import read_csv
 from functools import partial
 
+
 class CsvReader:
-    def __init__(self, filename=None, sep=',', header=False, skip_top=0, skip_bottom=0):
+    def __init__(
+        self, filename=None, sep=',',
+        header=False, skip_top=0, skip_bottom=0
+    ):
         self.__dict__.update(x for x in locals().items() if x[0] != 'self')
 
     def __enter__(self):
-        cleanup_values = lambda x: x.strip(' "') if isinstance(x, str) else x
+        def cleanup_values(x):
+            return x.strip(' "') if isinstance(x, str) else x
         if self.filename is None:
             raise ValueError("You must specify a filename")
         with open(self.filename, 'r') as file:
@@ -27,6 +32,7 @@ class CsvReader:
 
     def getheader(self):
         return self.csv_data.columns.tolist() if self.header else None
+
 
 print_context = partial(print, "========== ", end=" ==========\n")
 print_header = partial(print, "========== HEADER ==========\n")
@@ -57,7 +63,7 @@ if __name__ == "__main__":
             print_data(data)
     except Exception as e:
         print_exception(e)
-    
+
     print_context("notexist.csv")
     try:
         with CsvReader("notexist.csv") as file:
